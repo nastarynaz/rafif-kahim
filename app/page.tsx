@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { siteDescription, siteName, siteTitle, siteUrl } from "@/lib/site"
-import { PlatformTestimonials } from "@/components/platform-testimonials"
 import { PlatformMotion } from "@/components/platform-motion"
 import { PlatformDisclosure } from "@/components/platform-disclosure"
 import { PlatformHome } from "@/components/platform-home"
@@ -87,7 +86,6 @@ export default function Page() {
       >
         <VisionPage />
       </section>
-      <PlatformTestimonials />
       <section
         id="partisipasi"
         aria-label="Ikut Bersuara"
