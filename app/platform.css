@@ -1651,6 +1651,9 @@ body {
   margin-bottom: 13px;
   white-space: pre-wrap;
 }
+.p-agenda-unscheduled .p-agenda-detail {
+  padding-inline: clamp(16px, 3vw, 28px);
+}
 .p-agenda-detail small {
   display: block;
   font-size: 14px;

@@ -1,6 +1,7 @@
 import { db, handle, json } from "@/lib/server/backend"
 import { uuid } from "@/lib/validation"
 import type { Agenda } from "@/lib/platform-content"
+import { hasPublishedSchedule } from "@/lib/agenda-config"
 const escapeICS = (s: string) =>
   s
     .replace(/\\/g, "\\\\")
@@ -35,6 +36,8 @@ export async function GET(request: Request) {
     )
     const a = rows[0]
     if (!a) return json({ error: "Agenda tidak tersedia." }, 404)
+    if (!hasPublishedSchedule(a))
+      return json({ error: "Jadwal acara akan diinformasikan kembali." }, 409)
     const lines = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",

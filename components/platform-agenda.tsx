@@ -12,6 +12,7 @@ import {
 } from "lucide-react"
 import { useLiveData } from "@/hooks/use-live-data"
 import { type Agenda } from "@/lib/platform-content"
+import { hasPublishedSchedule } from "@/lib/agenda-config"
 import { Notice, PageIntro } from "./platform-shell"
 
 export const dateLabel = (
@@ -28,6 +29,7 @@ export const dateLabel = (
   }).format(new Date(value))
 export function effectiveStatus(a: Agenda) {
   if (a.status === "dibatalkan" || a.status === "selesai") return a.status
+  if (!hasPublishedSchedule(a)) return "akan_datang"
   const now = Date.now()
   return now >= Date.parse(a.end_datetime)
     ? "selesai"
@@ -66,39 +68,52 @@ function EmptyAgenda({ preview = false }: { preview?: boolean }) {
 }
 function AgendaCard({ event }: { event: Agenda }) {
   const status = effectiveStatus(event)
+  const scheduled = hasPublishedSchedule(event)
   return (
-    <details className="p-agenda-card">
+    <details
+      className={
+        scheduled ? "p-agenda-card" : "p-agenda-card p-agenda-unscheduled"
+      }
+    >
       <summary>
-        <div className="p-date-block">
-          <strong>{dateLabel(event.start_datetime, { day: "2-digit" })}</strong>
-          <span>
-            {dateLabel(event.start_datetime, {
-              month: "short",
-              year: "numeric",
-            })}
-          </span>
-        </div>
+        {scheduled && (
+          <div className="p-date-block">
+            <strong>
+              {dateLabel(event.start_datetime, { day: "2-digit" })}
+            </strong>
+            <span>
+              {dateLabel(event.start_datetime, {
+                month: "short",
+                year: "numeric",
+              })}
+            </span>
+          </div>
+        )}
         <div className="p-agenda-card-copy">
           <span
             className={`p-badge ${status === "dibatalkan" ? "cancelled" : ""}`}
           >
-            {statusLabels[status]}
+            {!scheduled && status === "akan_datang"
+              ? "Jadwal menyusul"
+              : statusLabels[status]}
           </span>
           <h3>{event.title}</h3>
           <div className="p-event-meta">
-            <span>
-              <Clock3 size={14} />
-              {dateLabel(event.start_datetime, {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-              –
-              {dateLabel(event.end_datetime, {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}{" "}
-              WIB
-            </span>
+            {scheduled && (
+              <span>
+                <Clock3 size={14} />
+                {dateLabel(event.start_datetime, {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+                –
+                {dateLabel(event.end_datetime, {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}{" "}
+                WIB
+              </span>
+            )}
             <span>
               <MapPin size={14} />
               {event.location}
@@ -110,8 +125,8 @@ function AgendaCard({ event }: { event: Agenda }) {
       <div className="p-agenda-detail">
         <p>{event.description}</p>
         {event.organizer && <p>Penyelenggara: {event.organizer}</p>}
-        <small>Diperbarui {dateLabel(event.updated_at)}</small>
-        {status !== "dibatalkan" && (
+        {scheduled && <small>Diperbarui {dateLabel(event.updated_at)}</small>}
+        {scheduled && status !== "dibatalkan" && (
           <a href={`/api/calendar?id=${event.id}`} className="p-text-link">
             Tambah ke kalender <CalendarDays size={16} />
           </a>
@@ -273,6 +288,7 @@ export function AgendaPage() {
                   key = `${month.getUTCFullYear()}-${String(month.getUTCMonth() + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`
                 const daily = events.filter(
                   (a) =>
+                    hasPublishedSchedule(a) &&
                     new Intl.DateTimeFormat("en-CA", {
                       timeZone: "Asia/Jakarta",
                       year: "numeric",
@@ -303,19 +319,27 @@ export function AgendaPage() {
               {events
                 .filter(
                   (a) =>
+                    hasPublishedSchedule(a) &&
                     dateLabel(a.start_datetime, {
                       month: "numeric",
                       year: "numeric",
                     }) ===
-                    dateLabel(month.toISOString(), {
-                      month: "numeric",
-                      year: "numeric",
-                    })
+                      dateLabel(month.toISOString(), {
+                        month: "numeric",
+                        year: "numeric",
+                      })
                 )
                 .map((a) => (
                   <div id={`agenda-${a.id}`} key={a.id}>
                     <AgendaCard event={a} />
                   </div>
+                ))}
+            </div>
+            <div className="p-agenda-list">
+              {events
+                .filter((a) => !hasPublishedSchedule(a))
+                .map((a) => (
+                  <AgendaCard key={a.id} event={a} />
                 ))}
             </div>
           </div>

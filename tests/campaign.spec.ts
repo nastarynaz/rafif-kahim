@@ -470,15 +470,31 @@ test("admin confirms draft, edits agenda, calendar and cancellation", async ({
   await expect(
     page.locator("#agenda").getByText("Lokasi terverifikasi untuk tes")
   ).toBeVisible()
-  const calendar = await page.request.get(
-    (await page
-      .getByRole("link", { name: "Tambah ke kalender" })
-      .getAttribute("href"))!
+  await expect(
+    page.locator("#agenda").getByText("Jadwal menyusul", { exact: true })
+  ).toBeVisible()
+  await expect(page.locator("#agenda .p-date-block")).toHaveCount(0)
+  await expect(
+    page.getByRole("link", { name: "Tambah ke kalender" })
+  ).toHaveCount(0)
+  const desak = published.find(
+    (a: { title: string }) => a.title === "Desak RAFIF–DEWA"
   )
-  expect(calendar.headers()["content-type"]).toContain("text/calendar")
-  expect(await calendar.text()).toContain("BEGIN:VEVENT")
+  expect(
+    (await page.request.get(`/api/calendar?id=${desak.id}`)).status()
+  ).toBe(409)
   await page.getByRole("button", { name: "Tampilan kalender" }).click()
   await expect(page.locator(".p-calendar-grid")).toBeVisible()
+  await expect(
+    page
+      .locator(".p-calendar-cell")
+      .getByText("Desak RAFIF–DEWA", { exact: true })
+  ).toHaveCount(0)
+  await expect(
+    page
+      .locator(".p-agenda-card")
+      .getByRole("heading", { name: "Desak RAFIF–DEWA" })
+  ).toBeVisible()
   await page.goto("/admin")
   await page.getByRole("button", { name: "Agenda", exact: true }).click()
   await page.getByRole("button", { name: "Kelola", exact: true }).click()
@@ -497,4 +513,27 @@ test("admin confirms draft, edits agenda, calendar and cancellation", async ({
   await expect(
     page.getByRole("link", { name: "Tambah ke kalender" })
   ).toHaveCount(0)
+  expect(
+    (
+      await page.request.post("/api/admin/agenda", {
+        headers,
+        data: {
+          title: "Forum terjadwal uji",
+          description: "Kegiatan sintetis untuk pengujian kalender.",
+          start_datetime: "2026-10-30T15:00:00+07:00",
+          end_datetime: "2026-10-30T17:00:00+07:00",
+          location: "Lokasi uji",
+          organizer: "Tim uji",
+          status: "akan_datang",
+          confirmed: true,
+        },
+      })
+    ).status()
+  ).toBe(201)
+  const scheduled = (
+    await (await page.request.get("/api/public?resource=agenda")).json()
+  ).find((a: { title: string }) => a.title === "Forum terjadwal uji")
+  const calendar = await page.request.get(`/api/calendar?id=${scheduled.id}`)
+  expect(calendar.headers()["content-type"]).toContain("text/calendar")
+  expect(await calendar.text()).toContain("BEGIN:VEVENT")
 })
