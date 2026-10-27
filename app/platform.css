@@ -1157,24 +1157,34 @@ body {
 }
 .p-review-list > div {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
   padding: 12px 0;
   border-bottom: 1px solid var(--p-tint);
 }
 .p-review-list strong {
+  color: var(--p-ink);
   font-size: 14px;
   display: block;
 }
 .p-review-list span {
   font-size: 14px;
-  color: var(--p-muted);
+  color: var(--p-black-primary);
+  font-weight: 600;
 }
-.p-review-list button {
+.p-review-list .p-review-edit {
   border: 0;
   background: none;
+  color: var(--p-black-primary);
+  min-height: 44px;
   text-decoration: underline;
+  text-underline-offset: 4px;
   font-size: 14px;
+}
+.p-review-list .p-review-edit:hover {
+  background: var(--p-tint);
+  color: var(--p-primary);
 }
 .p-muted {
   color: var(--p-muted);

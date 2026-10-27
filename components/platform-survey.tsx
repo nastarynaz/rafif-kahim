@@ -363,7 +363,7 @@ export function SurveyPage() {
                   <em>dengan pengalamanmu?</em>
                 </h2>
                 <p>
-                  Periksa kembali sebelum mengirim. Jawaban akan disimpan untuk
+                  Periksa kembali sebelum mengirim. Jawaban akan disimpan untuk{" "}
                   <strong>Survei 1.0</strong>.
                 </p>
                 <div className="p-review-list">
@@ -383,6 +383,9 @@ export function SurveyPage() {
                       </div>
                       <Button
                         type="button"
+                        variant="link"
+                        className="p-review-edit"
+                        aria-label={`Ubah jawaban ${a.short}`}
                         onClick={() => move(Math.floor(i / 2))}
                       >
                         Ubah
