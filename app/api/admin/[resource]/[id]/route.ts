@@ -13,6 +13,7 @@ import {
   validateAgenda,
   validateFeedbackUpdate,
 } from "@/lib/validation"
+import { surveyId } from "@/lib/survey-config"
 type Context = { params: Promise<{ resource: string; id: string }> }
 export async function PATCH(request: Request, context: Context) {
   return handle(async () => {
@@ -42,6 +43,7 @@ export async function PATCH(request: Request, context: Context) {
         body: JSON.stringify(validateFeedbackUpdate(body)),
       })
     else if (resource === "periods") {
+      if (id !== surveyId) throw new AppError(404, "Survei tidak ditemukan.")
       const d = object(body)
       if (typeof d.is_open !== "boolean")
         throw new AppError(400, "Status periode tidak valid.")

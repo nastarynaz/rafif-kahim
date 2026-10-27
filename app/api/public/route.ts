@@ -1,5 +1,6 @@
 import { db, handle, json, ready, rpc } from "@/lib/server/backend"
 import { choice, uuid } from "@/lib/validation"
+import { surveyId } from "@/lib/survey-config"
 import {
   targets,
   type Agenda,
@@ -21,7 +22,7 @@ export async function GET(request: Request) {
       })
     if (resource === "periods") {
       const periods = await db<Period[]>(
-        "survey_periods?select=id,title,starts_at,ends_at,is_open,survey_version&order=starts_at.desc&limit=30"
+        `survey_periods?id=eq.${surveyId}&select=id,title,starts_at,ends_at,is_open,survey_version&limit=1`
       )
       const now = Date.now()
       return json(
@@ -42,7 +43,7 @@ export async function GET(request: Request) {
       )
     if (resource === "results") {
       const periods = await db<Period[]>(
-        "survey_periods?select=id,title,starts_at,ends_at,is_open,survey_version&order=starts_at.desc&limit=30"
+        `survey_periods?id=eq.${surveyId}&select=id,title,starts_at,ends_at,is_open,survey_version&limit=1`
       )
       const selected = url.searchParams.get("period")
       const period = selected

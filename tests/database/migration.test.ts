@@ -3,6 +3,49 @@ import { test } from "node:test"
 import { readFile } from "node:fs/promises"
 import { PGlite } from "@electric-sql/pglite"
 import { questionIds } from "../../lib/platform-content"
+import { surveyId } from "../../lib/survey-config"
+
+test("single survey setup is repeatable and publishes the requested Desak event", async () => {
+  const db = new PGlite()
+  try {
+    await db.exec(
+      "create schema auth; create table auth.users(id uuid primary key); create role anon; create role authenticated; create role service_role bypassrls;"
+    )
+    await db.exec(
+      await readFile(
+        new URL(
+          "../../supabase/migrations/202610260001_platform.sql",
+          import.meta.url
+        ),
+        "utf8"
+      )
+    )
+    const migration = await readFile(
+      new URL(
+        "../../supabase/migrations/202610270001_single_survey_and_desak.sql",
+        import.meta.url
+      ),
+      "utf8"
+    )
+    await db.exec(migration)
+    await db.exec(migration)
+    const surveys = await db.query<{
+      id: string
+      title: string
+      is_open: boolean
+    }>("select id,title,is_open from public.survey_periods")
+    assert.deepEqual(surveys.rows, [
+      { id: surveyId, title: "Survei 1.0", is_open: true },
+    ])
+    const events = await db.query<{ confirmed: boolean; description: string }>(
+      "select confirmed,description from public.agenda where title='Desak RAFIF–DEWA'"
+    )
+    assert.equal(events.rows[0].confirmed, true)
+    assert(!events.rows[0].description.includes("Contoh"))
+  } finally {
+    await db.close()
+  }
+})
 
 test("production migration: privacy, N/A aggregation, persistence, dedupe and retention", async (t) => {
   const db = new PGlite()

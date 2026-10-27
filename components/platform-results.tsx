@@ -10,25 +10,14 @@ import {
   RefreshCw,
 } from "lucide-react"
 import { useLiveData } from "@/hooks/use-live-data"
-import {
-  aspects,
-  targets,
-  type Period,
-  type Results,
-} from "@/lib/platform-content"
+import { aspects, targets, type Results } from "@/lib/platform-content"
 import { Notice, PageIntro } from "./platform-shell"
 
 export function ResultsPage() {
-  const [period, setPeriod] = useState(""),
-    [category, setCategory] = useState(""),
+  const [category, setCategory] = useState(""),
     [aspect, setAspect] = useState("")
-  const { data: periods } = useLiveData<Period[]>(
-    "/api/public?resource=periods",
-    30000
-  )
   const query = new URLSearchParams({
     resource: "results",
-    ...(period ? { period } : {}),
     ...(category ? { category } : {}),
   })
   const { data, error, loading, reload, syncedAt } = useLiveData<Results>(
@@ -93,7 +82,7 @@ export function ResultsPage() {
             <p>
               {category
                 ? "Pada kategori yang memenuhi ambang privasi"
-                : "Pada periode yang dipilih"}
+                : "Survei 1.0"}
             </p>
           </div>
           <div className="p-stat-card">
@@ -118,17 +107,6 @@ export function ResultsPage() {
           </div>
         </div>
         <div className="p-result-filters">
-          <label className="p-field">
-            Periode
-            <select value={period} onChange={(e) => setPeriod(e.target.value)}>
-              <option value="">Periode aktif / terbaru</option>
-              {periods?.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.title}
-                </option>
-              ))}
-            </select>
-          </label>
           <label className="p-field">
             Aspek
             <select value={aspect} onChange={(e) => setAspect(e.target.value)}>

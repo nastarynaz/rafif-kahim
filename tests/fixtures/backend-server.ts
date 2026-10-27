@@ -19,6 +19,15 @@ await db.exec(
   )
 )
 const users: Record<string, { id: string; role: string }> = {}
+await db.exec(
+  await readFile(
+    new URL(
+      "../../supabase/migrations/202610270001_single_survey_and_desak.sql",
+      import.meta.url
+    ),
+    "utf8"
+  )
+)
 for (const role of ["owner", "agenda", "feedback"]) {
   const id = randomUUID()
   users[`${role}@local.test`] = { id, role }

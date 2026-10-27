@@ -13,8 +13,8 @@ import {
   object,
   uuid,
   validateAgenda,
-  validatePeriod,
 } from "@/lib/validation"
+import { surveyId } from "@/lib/survey-config"
 
 type Context = { params: Promise<{ resource: string }> }
 export async function GET(request: Request, context: Context) {
@@ -43,9 +43,7 @@ export async function GET(request: Request, context: Context) {
         await db("agenda?select=*&order=start_datetime.desc&limit=200")
       )
     if (resource === "periods")
-      return json(
-        await db("survey_periods?select=*&order=starts_at.desc&limit=30")
-      )
+      return json(await db(`survey_periods?id=eq.${surveyId}&select=*&limit=1`))
     if (resource === "admins") {
       await requireAdmin("owner")
       return json(
@@ -56,10 +54,9 @@ export async function GET(request: Request, context: Context) {
     }
     if (resource === "export") {
       const periods = await db<{ id: string }[]>(
-        "survey_periods?select=id&order=starts_at.desc&limit=30"
+        `survey_periods?id=eq.${surveyId}&select=id&limit=1`
       )
-      const id =
-        new URL(request.url).searchParams.get("period") || periods[0]?.id
+      const id = periods[0]?.id
       if (!id) return json({ error: "Belum ada periode survei." }, 404)
       return json(
         await rpc("survey_aggregate", { p_period: uuid(id), p_target: null })
@@ -83,15 +80,10 @@ export async function POST(request: Request, context: Context) {
       return json({ saved: true }, 201)
     }
     if (resource === "periods") {
-      const period = validatePeriod(body)
-      // A unique partial index rejects concurrent attempts to open two periods.
-      const rows = await db<{ id: string }[]>("survey_periods?select=id", {
-        method: "POST",
-        headers: { Prefer: "return=representation" },
-        body: JSON.stringify(period),
-      })
-      await audit(admin, "period.create", rows[0].id)
-      return json({ saved: true }, 201)
+      throw new AppError(
+        409,
+        "Survei 1.0 sudah tersedia. Tidak perlu membuat survei baru."
+      )
     }
     if (resource === "admins") {
       const d = object(body)

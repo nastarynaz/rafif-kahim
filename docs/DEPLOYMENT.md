@@ -11,11 +11,11 @@ Integrasi backend menggunakan Supabase Postgres dan Supabase Auth melalui REST d
 | `/` | Identitas, foto kandidat asli, empat nilai, visi resmi, CTA, dan agenda terdekat |
 | `/#gagasan` | Visi dan lima misi resmi, contoh rencana, indikator, dan profil kandidat |
 | `/#survei` | 20 pertanyaan / 10 aspek dalam 5 langkah, persetujuan, N/A, konteks opsional, tinjauan sebelum kirim |
-| `/#hasil` | Jumlah responden, rata-rata dan distribusi aspek, filter periode/konteks/aspek, metode dan waktu pembaruan |
+| `/#hasil` | Hasil Survei 1.0: jumlah responden, rata-rata dan distribusi aspek, filter konteks/aspek, metode dan waktu pembaruan |
 | `/#aspirasi` | Pesan privat, persetujuan, kontak opsional, nomor pesan dan kode penghapusan |
 | `/#agenda` | Daftar, kalender bulanan, filter status, detail dan ekspor `.ics` |
 | `/privasi` | Penggunaan data, retensi, pembaca berwenang, dan penghapusan pesan |
-| `/admin` | Login/logout, ringkasan, aspirasi sesuai izin, agenda, periode, ekspor agregat, pengelolaan akses |
+| `/admin` | Login/logout, ringkasan, aspirasi sesuai izin, agenda, status Survei 1.0, ekspor agregat, pengelolaan akses |
 
 Konten publik berada pada satu landing `/`; menu menuju anchor bagian tanpa memuat ulang halaman. Hanya `/privasi` dan `/admin` yang terpisah. Alamat publik lama diarahkan ke anchor terkait, sehingga total halaman tetap tiga.
 
@@ -59,7 +59,7 @@ Jaga `RATE_LIMIT_SECRET` stabil: menggantinya mengubah hash deduplikasi dan memb
 5. Tinjau Security Advisor. Pastikan semua tabel aplikasi memiliki RLS dan tidak ada grant tambahan ke `anon`/`authenticated`.
 6. Jangan mengaktifkan tabel respons individual atau aspirasi pada kanal Realtime publik.
 
-Tidak ada periode survei atau respons buatan yang dibuka/ditambahkan secara otomatis. Satu agenda contoh dibuat sebagai **draft belum terkonfirmasi**. Draft itu hanya terlihat di admin.
+Jalankan juga migrasi `202610270001_single_survey_and_desak.sql`. Migrasi ini menyediakan satu **Survei 1.0** yang langsung dibuka, tanpa menambahkan respons buatan. Permintaan pemilik situs juga memublikasikan agenda Desak RAFIF–DEWA yang sebelumnya tersimpan sebagai draft. Migrasi awal tidak diubah; jangan jalankan ulang migrasi awal pada database yang sudah berisi data.
 
 ## Skema dan kebijakan akses
 
@@ -111,19 +111,19 @@ Sesi memakai cookie HttpOnly/Secure pada produksi, SameSite Strict, maksimal sat
 5. Status pembatalan tampil jelas; agenda yang dibatalkan tidak menyediakan unduhan kalender.
 6. Status berlangsung/selesai juga dihitung dari waktu aktual. Halaman publik memeriksa ulang data setiap 15 detik; preview beranda setiap 30 detik.
 
-Agenda **Desak RAFIF–DEWA, 29 Oktober 2026, 15.00–17.00 WIB, Selasar KMTSL** tetap draft sampai admin memverifikasinya. Jangan mengonfirmasi hanya untuk mengisi tampilan.
+Agenda **Desak RAFIF–DEWA, 29 Oktober 2026, 15.00–17.00 WIB, Selasar KMTSL** dipublikasikan sesuai permintaan pemilik situs dan langsung terlihat di landing. Admin tetap dapat mengubah jadwal, menyembunyikan, atau membatalkan kegiatan.
 
 ## Membuka survei dan memverifikasi pembaruan
 
-1. Owner membuka tab Periode survei, membuat nama dan jadwal periode. Periode baru dibuat tertutup.
-2. Periksa pertanyaan dan pemberitahuan privasi, lalu buka periode. Hanya satu periode boleh berstatus dibuka. Server dan database juga memeriksa waktu mulai/selesai.
+1. Survei 1.0 langsung tersedia setelah migrasi. Tidak perlu membuat periode atau menjadwalkan survei. API menolak pembuatan survei tambahan.
+2. Owner dapat membuka atau menutup penerimaan melalui tab Survei 1.0. ID survei tetap sama sehingga menutup/membuka kembali tidak menghapus respons atau mengizinkan pengiriman ulang browser yang sama.
 3. Untuk uji manual gunakan backend staging, bukan respons palsu di produksi. Buka `/#hasil` pada tab/perangkat terpisah, lalu kirim respons di `/#survei`.
 4. Pastikan `/api/survey` mengembalikan 201. Muat ulang halaman; jumlah responden harus tetap ada.
 5. Di tab `/#hasil` yang tetap terbuka, tunggu maksimal sekitar 15 detik. Jumlah respons dan waktu respons terbaru harus berubah tanpa reload manual. Tab dalam browser yang sama juga diberi sinyal BroadcastChannel.
 6. Dengan kurang dari lima responden valid, skor/distribusi tetap disembunyikan. Pada responden kelima, skor aspek yang memenuhi syarat muncul. N/A tidak dihitung sebagai nilai.
 7. Putuskan koneksi pada halaman hasil setelah data termuat: status sinkronisasi berubah dan data terakhir dipertahankan. Hubungkan kembali; browser mencoba memuat ulang saat event online dan interval berikutnya.
 
-Polling hanya membaca agregat. Tidak ada subscription publik ke tabel mentah. Filter waktu dibatasi periode survei, bukan rentang tanggal arbitrer. Tanggapan sukarela dan dedupe browser bukan bukti identitas/keanggotaan warga.
+Polling hanya membaca agregat Survei 1.0. Tidak ada subscription publik ke tabel mentah atau pilihan periode pada hasil. Tanggapan sukarela dan dedupe browser bukan bukti identitas/keanggotaan warga.
 
 ## Membaca aspirasi dan retensi
 

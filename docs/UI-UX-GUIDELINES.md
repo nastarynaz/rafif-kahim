@@ -12,7 +12,7 @@ Urutan membaca:
 4. **Apa Kata Mereka:** marquee kartu dengan avatar inisial, nama, peran, dan ulasan dummy. Data contoh dikelola di `components/platform-testimonials.tsx`; identitas dan ulasan belum merupakan kesaksian terverifikasi.
 5. **Ikut bersuara:** jelaskan perbedaan survei dan aspirasi. Formulir baru dibuka setelah dipilih; dua kanal berada dalam tab fungsional dan draft tetap tersimpan saat berpindah tab atau menutup panel.
 6. **Hasil survei:** panel ringkas “Apa kata warga?” membuka data agregat, status koneksi, dan filter.
-7. **Agenda:** panel “Sampai bertemu” membuka kegiatan terkonfirmasi, waktu, lokasi, dan tindakan tambah ke kalender.
+7. **Agenda:** kegiatan terkonfirmasi langsung terlihat di landing tanpa membuka panel tambahan, termasuk Desak RAFIF–DEWA. Detail kegiatan dan tindakan tambah ke kalender tersedia pada kartu.
 
 Logo mengarah ke awal halaman. Menu utama mengikuti bagian konten; tidak ada tab Beranda di dalam Beranda. Tautan lama `/visi-misi`, `/survei`, `/aspirasi`, `/hasil`, dan `/agenda` tetap mengarah ke anchor masing-masing.
 

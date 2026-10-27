@@ -125,13 +125,7 @@ export default function Page() {
         data-nav-section="agenda"
         tabIndex={-1}
       >
-        <PlatformDisclosure
-          anchor="agenda"
-          title="Sampai bertemu."
-          description="Lihat agenda dan ruang pertemuan berikutnya."
-        >
-          <AgendaPage />
-        </PlatformDisclosure>
+        <AgendaPage />
       </section>
     </PlatformMotion>
   )

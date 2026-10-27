@@ -7,12 +7,18 @@ import {
   submissionIdentity,
 } from "@/lib/server/backend"
 import { AppError, object, validateSurvey } from "@/lib/validation"
+import { surveyId } from "@/lib/survey-config"
 
 export async function POST(request: Request) {
   return handle(async () => {
     const body = object(await requestBody(request))
     if (body.website) throw new AppError(400, "Pengiriman tidak valid.")
     const data = validateSurvey(body)
+    if (data.period_id !== surveyId)
+      throw new AppError(
+        400,
+        "Gunakan Survei 1.0 yang tersedia di halaman ini."
+      )
     // Shared campus networks can serve many residents; per-browser dedupe is separate.
     await rateLimit(request, "survey", 150, 3600)
     const identity = await submissionIdentity()

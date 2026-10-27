@@ -250,8 +250,17 @@ test("survey persists, excludes N/A, suppresses groups and updates dashboard", a
         },
       })
     ).status()
-  ).toBe(201)
+  ).toBe(409)
   const period = (await (await owner.get("/api/admin/periods")).json())[0]
+  expect(period.title).toBe("Survei 1.0")
+  expect(period.is_open).toBe(true)
+  expect(await (await owner.get("/api/admin/periods")).json()).toHaveLength(1)
+  await loginUi(page)
+  await page.getByRole("button", { name: "Survei 1.0", exact: true }).click()
+  await expect(page.getByRole("heading", { name: "Survei 1.0." })).toBeVisible()
+  await expect(page.getByRole("button", { name: "Buat Periode" })).toHaveCount(
+    0
+  )
   expect(
     (
       await owner.patch(`/api/admin/periods/${period.id}`, {
@@ -421,6 +430,22 @@ test("admin confirms draft, edits agenda, calendar and cancellation", async ({
 }) => {
   await loginUi(page)
   await page.getByRole("button", { name: "Agenda", exact: true }).click()
+  const published = await (
+    await page.request.get("/api/public?resource=agenda")
+  ).json()
+  expect(
+    published.some((a: { title: string }) => a.title === "Desak RAFIF–DEWA")
+  ).toBe(true)
+  await page.goto("/")
+  await expect(
+    page.locator("#agenda").getByRole("heading", { name: "Desak RAFIF–DEWA" })
+  ).toBeVisible()
+  await page.goto("/admin")
+  await page.getByRole("button", { name: "Agenda", exact: true }).click()
+  await page.getByRole("button", { name: "Kelola", exact: true }).click()
+  await page.getByRole("checkbox").uncheck()
+  await page.getByRole("button", { name: "Simpan Agenda", exact: true }).click()
+  await expect(page.getByText("Agenda berhasil disimpan.")).toBeVisible()
   await expect(
     page.getByText("Draft · belum dikonfirmasi", { exact: false })
   ).toBeVisible()

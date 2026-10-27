@@ -239,8 +239,7 @@ export function SurveyPage() {
           )}
           {!loading && !periodError && !period && (
             <Notice>
-              Belum ada periode survei yang dibuka. Kamu tetap bisa melihat
-              pertanyaannya.
+              Survei 1.0 sedang ditutup. Kamu tetap bisa melihat pertanyaannya.
             </Notice>
           )}
           <div key={step} data-motion-step>
@@ -365,8 +364,7 @@ export function SurveyPage() {
                 </h2>
                 <p>
                   Periksa kembali sebelum mengirim. Jawaban akan disimpan untuk
-                  periode{" "}
-                  <strong>{period?.title || "yang sedang dibuka"}</strong>.
+                  <strong>Survei 1.0</strong>.
                 </p>
                 <div className="p-review-list">
                   {aspects.map((a, i) => (
@@ -417,8 +415,8 @@ export function SurveyPage() {
                 </label>
                 <p className="p-small p-muted">
                   Setidaknya satu penilaian numerik diperlukan agar respons
-                  dapat diolah. Satu respons per browser per periode; pembatasan
-                  ini bukan verifikasi identitas warga.
+                  dapat diolah. Satu respons per browser untuk Survei 1.0;
+                  pembatasan ini bukan verifikasi identitas warga.
                 </p>
               </>
             )}

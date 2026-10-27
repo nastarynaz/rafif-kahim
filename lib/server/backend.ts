@@ -58,13 +58,13 @@ export async function db<T>(
       throw new AppError(
         409,
         path.includes("submit_survey")
-          ? "Respons surveimu untuk periode ini sudah tersimpan. Terima kasih."
-          : "Data sudah ada atau periode lain masih dibuka. Periksa kembali sebelum menyimpan."
+          ? "Respons Survei 1.0 kamu sudah tersimpan. Terima kasih."
+          : "Data sudah ada. Periksa kembali sebelum menyimpan."
       )
     if (problem.message?.includes("period_closed"))
       throw new AppError(
         409,
-        "Periode survei sudah ditutup. Muat ulang untuk melihat periode terbaru."
+        "Survei 1.0 sedang ditutup. Jawaban belum dikirim."
       )
     throw new AppError(503, "Operasi belum berhasil. Silakan coba kembali.")
   }

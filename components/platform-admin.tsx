@@ -139,7 +139,7 @@ export function AdminPage() {
       : []),
     ...(admin.role === "owner"
       ? [
-          { id: "periods", label: "Periode survei", icon: Settings2 },
+          { id: "periods", label: "Survei 1.0", icon: Settings2 },
           { id: "admins", label: "Akses admin", icon: Users },
         ]
       : []),
@@ -644,34 +644,9 @@ function PeriodAdmin() {
     ),
     [message, setMessage] = useState(""),
     [busy, setBusy] = useState(false)
-  async function create(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    const form = e.currentTarget,
-      d = Object.fromEntries(new FormData(form))
+  async function toggle(p: Period) {
     setBusy(true)
     setMessage("")
-    try {
-      await api("/api/admin/periods", {
-        method: "POST",
-        body: JSON.stringify({
-          ...d,
-          starts_at: `${d.starts_at}:00+07:00`,
-          ends_at: `${d.ends_at}:00+07:00`,
-          is_open: false,
-        }),
-      })
-      form.reset()
-      await reload()
-      setMessage(
-        "Periode dibuat dalam keadaan tertutup. Buka setelah jadwal dan pertanyaan siap."
-      )
-    } catch (e) {
-      setMessage(e instanceof Error ? e.message : "Pembuatan gagal.")
-    } finally {
-      setBusy(false)
-    }
-  }
-  async function toggle(p: Period) {
     try {
       await api(`/api/admin/periods/${p.id}`, {
         method: "PATCH",
@@ -683,39 +658,21 @@ function PeriodAdmin() {
       setMessage(
         e instanceof Error
           ? e.message
-          : "Perubahan gagal. Tutup periode aktif lainnya dahulu."
+          : "Status survei belum berhasil diperbarui."
       )
+    } finally {
+      setBusy(false)
     }
   }
   return (
     <>
-      <h2>Periode survei.</h2>
+      <h2>Survei 1.0.</h2>
       <p className="p-muted">
-        Hanya satu periode dapat dibuka. Versi 1.0 memuat 20 pertanyaan; jangan
-        mengubah pertanyaan di tengah periode.
+        Satu survei dengan 20 pertanyaan. Sudah tersedia untuk warga tanpa
+        membuat periode atau mengatur jadwal baru.
       </p>
       {error && <Notice error>{error}</Notice>}
       {message && <Notice>{message}</Notice>}
-      <form className="p-form-panel p-admin-editor" onSubmit={create}>
-        <h3>Buat periode baru</h3>
-        <label className="p-field">
-          Nama periode
-          <input name="title" required minLength={3} maxLength={120} />
-        </label>
-        <div className="p-two-fields">
-          <label className="p-field">
-            Mulai (WIB)
-            <input name="starts_at" type="datetime-local" required />
-          </label>
-          <label className="p-field">
-            Selesai (WIB)
-            <input name="ends_at" type="datetime-local" required />
-          </label>
-        </div>
-        <button className="p-button small" disabled={busy}>
-          Buat Periode
-        </button>
-      </form>
       {data?.map((p) => (
         <div className="p-admin-list-row" key={p.id}>
           <div>
@@ -723,12 +680,13 @@ function PeriodAdmin() {
               {p.is_open ? "Dibuka" : "Ditutup"} · v{p.survey_version}
             </span>
             <h3>{p.title}</h3>
-            <p>
-              {dateLabel(p.starts_at)} – {dateLabel(p.ends_at)}
-            </p>
           </div>
-          <button className="p-text-link" onClick={() => void toggle(p)}>
-            {p.is_open ? "Tutup periode" : "Buka periode"}
+          <button
+            className="p-text-link"
+            disabled={busy}
+            onClick={() => void toggle(p)}
+          >
+            {p.is_open ? "Tutup survei" : "Buka survei"}
           </button>
         </div>
       ))}

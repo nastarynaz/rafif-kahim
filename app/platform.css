@@ -1299,7 +1299,7 @@ body {
 }
 .p-result-filters {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 18px;
   margin-bottom: 25px;
 }
@@ -2632,9 +2632,6 @@ body {
   .p-result-filters {
     grid-template-columns: 1fr 1fr;
     gap: 13px;
-  }
-  .p-result-filters .p-field:last-child {
-    grid-column: 1/-1;
   }
   .p-chart-panel {
     padding: 24px 19px;
