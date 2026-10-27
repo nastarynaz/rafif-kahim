@@ -11,12 +11,36 @@ import "./campaign-poster.css"
 import "./testimonials.css"
 import "./campaign-photos.css"
 import { PlatformShell } from "@/components/platform-shell"
+import {
+  indexable,
+  siteDescription,
+  siteName,
+  siteTitle,
+  siteUrl,
+} from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Rafif–Dewa — Samanvaya Sahakara | KMTSL FT UGM",
-  description:
-    "Samanvaya Sahakara, calon Ketua dan Sekjen KMTSL FT UGM 2026/2027. Kenali gagasan, bagikan pengalaman, dan temukan ruang untuk bertumbuh bersama.",
-  robots: { index: false, follow: false },
+  metadataBase: new URL(siteUrl),
+  title: { default: siteTitle, template: "%s | Rafif–Dewa" },
+  description: siteDescription,
+  applicationName: siteName,
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  robots: {
+    index: indexable,
+    follow: true,
+    googleBot: { index: indexable, follow: true, "max-image-preview": "large" },
+  },
   icons: {
     icon: { url: "/campaign-mark.svg", type: "image/svg+xml" },
     apple: {

@@ -143,7 +143,7 @@ Polling hanya membaca agregat. Tidak ada subscription publik ke tabel mentah. Fi
 4. Jalankan migrasi dan buat admin sebelum menerima data warga.
 5. Deploy melalui integrasi Git Vercel atau CLI Vercel yang sudah terhubung. Implementasi ini belum melakukan push atau deployment ke akun eksternal.
 6. Redeploy sesudah mengubah environment variables. Uji login, akses publik, persisten survei, kontrol izin, kalender, dan retensi pada deployment.
-7. Metadata publik tetap `noindex` seperti prototipe sebelumnya. Setelah konten, privasi, dan integrasi diverifikasi untuk rilis, ubah pengaturan robots publik di `app/layout.tsx`; `/admin` tetap `noindex`.
+7. Metadata publik sudah mengizinkan indeks di produksi; Vercel Preview serta `/admin` tetap `noindex`. Canonical memakai `https://rafifdewa.space`. Ikuti [panduan SEO](SEO.md) untuk menghubungkan domain, verifikasi Search Console, dan mengirim sitemap.
 
 Sebelum rilis, pastikan `FEEDBACK_READERS` mencerminkan pemberian akses aktual, kebijakan retensi disetujui pengelola, periode survei benar, dan draft agenda hanya dikonfirmasi jika faktanya telah diverifikasi.
 

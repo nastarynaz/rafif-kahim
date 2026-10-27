@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+import { siteDescription, siteName, siteTitle, siteUrl } from "@/lib/site"
 import { PlatformTestimonials } from "@/components/platform-testimonials"
 import { PlatformMotion } from "@/components/platform-motion"
 import { PlatformDisclosure } from "@/components/platform-disclosure"
@@ -8,9 +10,73 @@ import { AgendaPage } from "@/components/platform-agenda"
 import { ParticipationGuide } from "@/components/platform-participation"
 import { ParticipationTabs } from "@/components/platform-participation-tabs"
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+  },
+}
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: `${siteUrl}/`,
+      name: siteName,
+      alternateName: "Rafif Dewa",
+      inLanguage: "id-ID",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/#webpage`,
+      url: `${siteUrl}/`,
+      name: siteName,
+      description: siteDescription,
+      inLanguage: "id-ID",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: [{ "@id": `${siteUrl}/#rafif` }, { "@id": `${siteUrl}/#dewa` }],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#rafif`,
+      name: "Muhammad Rafif Thalib",
+      description: "Calon Ketua KMTSL FT UGM 2026/2027",
+      image: `${siteUrl}/media/rapip-1.webp`,
+      sameAs: [
+        "https://www.linkedin.com/in/muhammad-rafif-thalib-956b81351/",
+        "https://www.instagram.com/rafifth/",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#dewa`,
+      name: "Dewa Ngakan Nyoman T. S.",
+      description: "Calon Sekretaris Jenderal KMTSL FT UGM 2026/2027",
+      image: `${siteUrl}/media/dewa-1.webp`,
+      sameAs: [
+        "https://www.linkedin.com/in/dewatantra/",
+        "https://www.instagram.com/dewa.tantraa/",
+      ],
+    },
+  ],
+}
+
 export default function Page() {
   return (
     <PlatformMotion>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       <PlatformHome />
       <section
         id="gagasan"
