@@ -1,5 +1,8 @@
 import { timingSafeEqual } from "node:crypto"
-import { handle, json, rpc } from "@/lib/server/backend"
+import { db, handle, json, rpc } from "@/lib/server/backend"
+import { surveyId } from "@/lib/survey-config"
+
+export const dynamic = "force-dynamic"
 
 export async function GET(request: Request) {
   return handle(async () => {
@@ -12,7 +15,8 @@ export async function GET(request: Request) {
       !timingSafeEqual(Buffer.from(supplied), Buffer.from(`Bearer ${expected}`))
     )
       return json({ error: "Tidak diizinkan." }, 401)
+    await db(`survey_periods?id=eq.${surveyId}&select=id&limit=1`)
     await rpc("purge_expired_data", {})
-    return json({ processed: true })
+    return json({ processed: true, keep_alive: true })
   })
 }
