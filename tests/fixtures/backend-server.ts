@@ -146,7 +146,10 @@ const server = createServer(async (req, res) => {
       sql += ` limit ${Math.min(1000, Math.max(1, Number(url.searchParams.get("limit")) || 100))} offset ${Math.max(0, Number(url.searchParams.get("offset")) || 0)}`
     }
     const result = await db.query(sql, params)
-    if (req.headers.prefer === "return=minimal") return send(204, null)
+    if (req.headers.prefer === "return=minimal") {
+      res.statusCode = req.method === "POST" ? 201 : 204
+      return res.end()
+    }
     return send(req.method === "POST" ? 201 : 200, result.rows)
   } catch (e) {
     const err = e as { code?: string; message?: string }

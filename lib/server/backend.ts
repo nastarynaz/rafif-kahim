@@ -68,9 +68,9 @@ export async function db<T>(
       )
     throw new AppError(503, "Operasi belum berhasil. Silakan coba kembali.")
   }
-  return response.status === 204
-    ? (undefined as T)
-    : ((await response.json()) as T)
+  // PostgREST can return 201 with an empty body for successful minimal inserts.
+  const body = await response.text()
+  return body.trim() === "" ? (undefined as T) : (JSON.parse(body) as T)
 }
 export const rpc = <T>(name: string, params: Record<string, unknown>) =>
   db<T>(`rpc/${name}`, { method: "POST", body: JSON.stringify(params) })
