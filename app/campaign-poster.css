@@ -1,0 +1,669 @@
+/* The supplied blue uses 80% alpha in the campaign gradient. */
+:root {
+  --p-primary: #0b1f3a;
+  --p-gradient-primary: rgb(126 154 198 / 80%);
+  --p-black-primary: #193d74;
+  --p-blue: #7e9ac6;
+  --p-paper: #f0f4fa;
+  --p-surface: #fafcff;
+  --p-tint: #dce7f7;
+  --p-ink: var(--p-primary);
+  --p-muted: #4d607c;
+  --p-border: #c7d3e5;
+  --p-on-dark: #edf4ff;
+  --p-on-dark-muted: #bbcdea;
+  --p-focus: #315d9a;
+  --primary: var(--p-primary);
+  --primary-foreground: var(--p-on-dark);
+  --background: var(--p-paper);
+  --foreground: var(--p-ink);
+  --card: var(--p-surface);
+  --card-foreground: var(--p-ink);
+  --popover: var(--p-surface);
+  --popover-foreground: var(--p-ink);
+  --secondary: var(--p-tint);
+  --secondary-foreground: var(--p-black-primary);
+  --muted: var(--p-tint);
+  --muted-foreground: var(--p-muted);
+  --accent: var(--p-tint);
+  --accent-foreground: var(--p-black-primary);
+  --border: var(--p-border);
+  --input: var(--p-border);
+  --ring: var(--p-focus);
+}
+/* Campaign poster composition; forms retain their existing control styles. */
+.p-landing-section {
+  scroll-margin-top: 146px;
+}
+.p-anchor-target {
+  scroll-margin-top: 210px;
+}
+.platform {
+  background: var(--p-paper);
+}
+body {
+  background: var(--p-paper);
+}
+.p-container {
+  width: min(1200px, calc(100% - 64px));
+}
+.p-header {
+  background: var(--p-primary);
+  color: var(--p-on-dark);
+  border-bottom: 1px solid rgb(126 154 198 / 25%);
+}
+.p-announcement {
+  min-height: 42px;
+  background: var(--p-black-primary);
+  color: var(--p-on-dark);
+  font-weight: 600;
+}
+.p-nav {
+  height: 124px;
+  gap: 28px;
+}
+.p-campaign-wordmark {
+  display: block;
+  font:
+    400 37px/0.9 "Anton",
+    Impact,
+    sans-serif;
+  letter-spacing: -0.035em;
+}
+.p-campaign-wordmark > span {
+  display: block;
+}
+.p-desktop-nav {
+  margin-left: auto;
+  gap: 25px;
+}
+.p-desktop-nav a {
+  font-size: 13px;
+}
+.p-nav-cta.p-button {
+  border-radius: 999px;
+  background: var(--p-tint);
+  color: var(--p-primary) !important;
+  border-color: var(--p-tint);
+  padding-inline: 22px;
+}
+.p-poster-wrap {
+  padding-top: 12px;
+  padding-bottom: 72px;
+}
+.p-campaign-poster {
+  position: relative;
+  isolation: isolate;
+  height: 610px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: linear-gradient(
+    128deg,
+    var(--p-primary) 32%,
+    var(--p-black-primary) 100%
+  );
+  color: var(--p-on-dark);
+}
+.p-poster-pattern {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  padding-top: 36px;
+  color: color-mix(in srgb, var(--p-blue) 48%, var(--p-primary));
+  font:
+    400 134px/0.98 "Anton",
+    Impact,
+    sans-serif;
+  white-space: nowrap;
+  letter-spacing: -0.035em;
+  user-select: none;
+}
+.p-poster-pattern span {
+  display: block;
+  width: max-content;
+}
+.p-poster-pattern > span:nth-child(even) {
+  transform: translateX(-180px);
+}
+.p-poster-pattern .p-poster-track {
+  display: flex;
+}
+.p-poster-run {
+  flex-shrink: 0;
+  padding-right: 0.18em;
+}
+.p-poster-kicker {
+  position: absolute;
+  inset: 25px 32px auto;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+.platform h1.p-poster-title {
+  position: absolute;
+  z-index: 2;
+  inset: 90px 0 auto;
+  text-align: center;
+  color: var(--p-on-dark);
+  font-family: "Anton", Impact, sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+}
+.platform h1.p-poster-title > span {
+  color: var(--p-on-dark);
+  display: block;
+  margin-bottom: 15px;
+  font:
+    650 17px/1.4 "Manrope Variable",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.01em;
+}
+.p-poster-title strong {
+  font-size: clamp(78px, 7.5vw, 108px);
+  font-weight: 400;
+}
+.p-poster-person {
+  position: absolute;
+  inset: auto auto 0;
+  margin: 0;
+  width: 36%;
+  height: 550px;
+  z-index: 3;
+  pointer-events: none;
+}
+.p-poster-person.p-person-rafif {
+  left: -1%;
+}
+.p-poster-person.p-person-dewa {
+  right: -1%;
+  left: auto;
+}
+.p-poster-person img {
+  position: absolute;
+  width: 1050px;
+  height: auto;
+  max-width: none;
+  left: calc(50% - 525px);
+  bottom: -8px;
+}
+.p-poster-person figcaption {
+  position: absolute;
+  bottom: 65px;
+  left: 18%;
+  display: flex;
+  flex-direction: column;
+  color: var(--p-on-dark);
+  padding: 8px 16px;
+  background: var(--p-primary);
+  border-left: 3px solid var(--p-tint);
+}
+.p-poster-person.p-person-dewa figcaption {
+  left: auto;
+  right: 18%;
+}
+.p-poster-person figcaption strong {
+  font:
+    400 31px/1.2 "Anton",
+    Impact,
+    sans-serif;
+  text-transform: uppercase;
+}
+.p-poster-person figcaption span {
+  font-size: 10px;
+  font-weight: 600;
+}
+.p-poster-signature {
+  position: absolute;
+  z-index: 4;
+  bottom: 23px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+}
+.p-poster-invitation {
+  position: relative;
+  z-index: 5;
+  width: min(570px, calc(100% - 40px));
+  margin: -36px auto 0;
+  padding: 34px 42px;
+  background:
+    linear-gradient(135deg, var(--p-tint) 10%, var(--p-gradient-primary) 100%),
+    var(--p-paper);
+  text-align: center;
+  border: 1px solid rgb(126 154 198 / 45%);
+  box-shadow: 0 16px 35px rgb(11 31 58 / 10%);
+  border-radius: 6px;
+}
+.p-poster-invitation .p-section-index {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--p-black-primary);
+}
+.platform .p-poster-invitation h2 {
+  font:
+    400 32px/1.15 "Anton",
+    Impact,
+    sans-serif;
+  letter-spacing: -0.02em;
+  margin-top: 10px;
+}
+.p-poster-invitation p {
+  margin: 14px auto 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 370px;
+}
+.p-poster-invitation .p-button {
+  width: 100%;
+  border-radius: 999px;
+  background: var(--p-primary);
+  color: var(--p-on-dark);
+}
+.p-poster-invitation > .p-text-link {
+  display: inline-flex;
+  margin-top: 16px;
+  font-size: 12px;
+}
+.platform
+  :is(.p-candidates-layout, .p-direction-heading, .p-participation-heading)
+  h2 {
+  font:
+    400 clamp(40px, 4.2vw, 58px)/1.08 "Anton",
+    Impact,
+    sans-serif;
+  letter-spacing: -0.025em;
+}
+.platform
+  :is(.p-candidates-layout, .p-direction-heading, .p-participation-heading)
+  h2
+  em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--p-black-primary);
+}
+.p-candidates-section {
+  padding-top: 34px;
+  padding-bottom: 80px;
+}
+.p-candidates-layout {
+  gap: 100px;
+}
+.p-community-photo {
+  margin-top: 50px;
+}
+.p-community-photo img {
+  max-height: 380px;
+  object-fit: cover;
+}
+.p-direction-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.p-direction-heading {
+  gap: 80px;
+}
+.p-vision-statement {
+  background: var(--p-tint);
+  color: var(--p-primary);
+  padding: 35px;
+  border: 0;
+}
+.p-vision-statement > span,
+.p-vision-statement .p-vision-principles {
+  color: var(--p-black-primary);
+}
+.p-vision-statement blockquote {
+  font-size: 25px;
+}
+.p-mission-hint {
+  display: none;
+}
+.p-missions-heading {
+  margin-top: 65px;
+}
+.p-mission-photo img {
+  max-height: 470px;
+}
+.p-participation-guide {
+  background: linear-gradient(115deg, var(--p-primary), var(--p-black-primary));
+  color: var(--p-on-dark);
+}
+.p-participation-heading h2 em {
+  color: var(--p-tint) !important;
+}
+.p-participation-heading .p-section-index,
+.platform .p-participation-heading p {
+  color: var(--p-on-dark-muted);
+}
+.p-participation-option {
+  background: var(--p-paper);
+  color: var(--p-primary) !important;
+  border: 0;
+}
+.p-participation-option p {
+  max-width: 330px;
+}
+.p-participation-results {
+  color: var(--p-on-dark) !important;
+}
+.p-section-disclosure {
+  border-bottom: 1px solid var(--p-border);
+}
+.p-section-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding-block: 32px;
+}
+.p-section-disclosure > summary > span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.p-section-disclosure > summary strong {
+  font:
+    400 34px/1.15 "Anton",
+    Impact,
+    sans-serif;
+  letter-spacing: -0.02em;
+}
+.p-section-disclosure > summary span span {
+  font-size: 13px;
+  color: var(--p-muted);
+}
+.p-section-disclosure > summary > svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.p-section-disclosure[open] > summary > svg {
+  transform: rotate(-90deg);
+}
+.p-disclosure-content {
+  padding-bottom: 45px;
+}
+#hasil.p-landing-detail,
+#agenda.p-landing-detail {
+  padding: 0;
+  border: 0;
+}
+.p-landing-section:focus,
+.p-anchor-target:focus {
+  outline: none;
+}
+
+.p-header .p-campaign-wordmark {
+  color: var(--p-on-dark);
+}
+.p-header .p-desktop-nav a {
+  color: var(--p-on-dark-muted);
+}
+.p-header .p-desktop-nav a:is(:hover, [aria-current="location"]) {
+  color: var(--p-on-dark);
+}
+.platform .p-header .p-menu {
+  color: var(--p-on-dark);
+}
+.p-header .p-mobile-nav {
+  background: var(--p-primary);
+  border-color: var(--p-black-primary);
+}
+.p-header .p-mobile-nav a {
+  color: var(--p-on-dark);
+  border-color: rgb(126 154 198 / 30%);
+}
+.p-header :focus-visible {
+  outline-color: var(--p-blue);
+}
+.p-footer {
+  background: var(--p-primary);
+  color: var(--p-on-dark);
+}
+.p-footer :is(.p-eyebrow, .p-footer-bottom) {
+  color: var(--p-on-dark-muted);
+}
+.p-footer-links a {
+  border-color: rgb(126 154 198 / 35%);
+}
+.p-vision-principles {
+  border-color: var(--p-blue);
+}
+.platform .p-button:not(.secondary):not(.light):not(.p-nav-cta):hover {
+  background: var(--p-black-primary);
+  border-color: var(--p-black-primary);
+}
+.p-header .p-nav-cta:hover {
+  background: var(--p-on-dark);
+}
+.score-1,
+.score-2,
+.score-3 {
+  color: var(--p-ink);
+}
+.score-4,
+.score-5 {
+  color: var(--p-on-dark);
+}
+
+@media (max-width: 1100px) {
+  .p-desktop-nav {
+    gap: 15px;
+  }
+  .p-nav {
+    gap: 18px;
+  }
+  .p-poster-person img {
+    width: 900px;
+    left: calc(50% - 450px);
+  }
+  .p-campaign-poster {
+    height: 560px;
+  }
+  .p-poster-title strong {
+    font-size: 87px;
+  }
+  .p-poster-person {
+    width: 38%;
+    height: 510px;
+  }
+  .p-candidates-layout {
+    gap: 45px;
+  }
+}
+@media (max-width: 850px) {
+  .p-landing-section {
+    scroll-margin-top: 108px;
+  }
+  .p-anchor-target {
+    scroll-margin-top: 172px;
+  }
+  .p-container {
+    width: calc(100% - 40px);
+  }
+  .p-nav {
+    height: 88px;
+  }
+  .p-desktop-nav {
+    display: none;
+  }
+  .p-campaign-wordmark {
+    font-size: 28px;
+  }
+  .p-nav-cta {
+    margin-left: auto;
+  }
+  .p-announcement-right {
+    display: none;
+  }
+  .p-campaign-poster {
+    height: 530px;
+  }
+  .p-poster-person img {
+    width: 780px;
+    left: calc(50% - 390px);
+  }
+  .p-poster-person {
+    height: 490px;
+    width: 42%;
+  }
+  .platform h1.p-poster-title {
+    top: 70px;
+  }
+  .p-poster-title strong {
+    font-size: 72px;
+  }
+  .p-poster-person figcaption {
+    left: 8%;
+    bottom: 55px;
+  }
+  .p-poster-person.p-person-dewa figcaption {
+    right: 8%;
+  }
+  .p-direction-heading {
+    gap: 35px;
+  }
+  .p-poster-invitation {
+    padding: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .p-container {
+    width: calc(100% - 32px);
+  }
+  .p-announcement {
+    font-size: 10px;
+    min-height: 34px;
+    letter-spacing: 0;
+  }
+  .p-nav {
+    height: 84px;
+    gap: 12px;
+  }
+  .p-nav-cta.p-button {
+    font-size: 11px;
+    padding: 10px 14px;
+    min-height: 40px;
+  }
+  .p-nav-cta svg {
+    display: none;
+  }
+  .p-poster-wrap {
+    padding-top: 4px;
+    padding-bottom: 45px;
+  }
+  .p-campaign-poster {
+    height: 590px;
+    border-radius: 5px;
+  }
+  .p-poster-kicker {
+    inset: 18px 17px auto;
+    font-size: 8px;
+    letter-spacing: 0.04em;
+    gap: 8px;
+  }
+  .p-poster-pattern {
+    font-size: 105px;
+    padding-top: 70px;
+  }
+  .platform h1.p-poster-title {
+    top: 62px;
+  }
+  .platform h1.p-poster-title > span {
+    color: var(--p-on-dark);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .p-poster-title strong {
+    font-size: clamp(64px, 17vw, 88px);
+  }
+  .p-poster-person {
+    width: 50%;
+    height: 365px;
+  }
+  .p-poster-person.p-person-rafif {
+    left: -2%;
+  }
+  .p-poster-person.p-person-dewa {
+    right: -2%;
+  }
+  .p-poster-person img {
+    width: 620px;
+    left: calc(50% - 310px);
+    bottom: 0;
+  }
+  .p-poster-person figcaption {
+    bottom: 66px;
+    left: 10%;
+    padding: 7px 9px;
+  }
+  .p-poster-person.p-person-dewa figcaption {
+    right: 10%;
+  }
+  .p-poster-person figcaption strong {
+    font-size: 24px;
+  }
+  .p-poster-person figcaption span {
+    font-size: 8px;
+  }
+  .p-poster-signature {
+    bottom: 39px;
+    font-size: 7px;
+    letter-spacing: 0.07em;
+  }
+  .p-poster-invitation {
+    width: calc(100% - 24px);
+    padding: 26px 20px;
+    margin-top: -22px;
+  }
+  .platform .p-poster-invitation h2 {
+    font-size: 29px;
+  }
+  .p-poster-invitation p {
+    font-size: 13px;
+    margin-block: 12px 19px;
+  }
+  .p-candidates-section {
+    padding-top: 20px;
+    padding-bottom: 45px;
+  }
+  .p-candidates-layout,
+  .p-direction-heading {
+    gap: 30px;
+  }
+  .p-direction-section {
+    padding-block: 50px;
+  }
+  .p-vision-statement {
+    padding: 24px;
+  }
+  .p-vision-statement blockquote {
+    font-size: 22px;
+  }
+  .p-community-photo {
+    margin-top: 30px;
+  }
+  .p-section-disclosure > summary {
+    padding-block: 28px;
+  }
+  .p-section-disclosure > summary strong {
+    font-size: 29px;
+  }
+  .p-section-disclosure > summary span span {
+    font-size: 12px;
+    max-width: 250px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p-section-disclosure > summary > svg {
+    transition: none;
+  }
+}

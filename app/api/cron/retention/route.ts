@@ -1,0 +1,18 @@
+import { timingSafeEqual } from "node:crypto"
+import { handle, json, rpc } from "@/lib/server/backend"
+
+export async function GET(request: Request) {
+  return handle(async () => {
+    const expected = process.env.CRON_SECRET,
+      supplied = request.headers.get("authorization") || ""
+    if (
+      !expected ||
+      expected.length < 32 ||
+      supplied.length !== `Bearer ${expected}`.length ||
+      !timingSafeEqual(Buffer.from(supplied), Buffer.from(`Bearer ${expected}`))
+    )
+      return json({ error: "Tidak diizinkan." }, 401)
+    await rpc("purge_expired_data", {})
+    return json({ processed: true })
+  })
+}

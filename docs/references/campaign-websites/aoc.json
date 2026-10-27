@@ -1,0 +1,107 @@
+{
+  "checkedAt": "2026-10-26T17:36:26.913Z",
+  "id": "aoc",
+  "url": "https://www.ocasiocortez.com/",
+  "status": 200,
+  "title": "Alexandria Ocasio-Cortez | Official Campaign Website",
+  "finalUrl": "https://www.ocasiocortez.com/splash",
+  "headings": [
+    {
+      "level": "H1",
+      "text": "The fight for social, racial, and economic justice has never been more urgent.",
+      "font": "\"Roboto Slab\"",
+      "size": "50px"
+    },
+    {
+      "level": "H2",
+      "text": "Join now to keep building our movement",
+      "font": "Metropolis",
+      "size": "18px"
+    }
+  ],
+  "navigation": [],
+  "actions": [
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.ocasiocortez.com/privacy"
+    },
+    {
+      "text": "Continue to Site",
+      "href": "https://www.ocasiocortez.com/"
+    },
+    {
+      "text": "Twitter",
+      "href": "http://twitter.com/teamaoc"
+    },
+    {
+      "text": "Instagram",
+      "href": "http://instagram.com/teamaoc"
+    },
+    {
+      "text": "Youtube",
+      "href": "http://youtube.com/aoc"
+    },
+    {
+      "text": "press@ocasiocortez.com",
+      "href": "mailto:press@ocasiocortez.com"
+    },
+    {
+      "text": "Join our team",
+      "href": "https://www.ocasiocortez.com/positions"
+    },
+    {
+      "text": "Accessibility",
+      "href": "https://www.ocasiocortez.com/accessibility"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.ocasiocortez.com/privacy"
+    },
+    {
+      "text": "click here",
+      "href": "https://ocasio-cortez.house.gov/"
+    }
+  ],
+  "images": [
+    {
+      "alt": "",
+      "src": "https://cosmic-s3.imgix.net/9865ce60-4ed9-11ea-9261-799f6f9eb9a6-AOC2020Logo-DemWhite.svg",
+      "width": 194,
+      "height": 150
+    },
+    {
+      "alt": "Right arrow icon",
+      "src": "https://www.ocasiocortez.com/images/caret-d80f6d6cbaa6dd4fd62a04e801073736.svg?vsn=d",
+      "width": 75,
+      "height": 150
+    }
+  ],
+  "colors": [
+    [
+      "rgb(255, 255, 255)",
+      12
+    ],
+    [
+      "rgb(17, 17, 17)",
+      2
+    ],
+    [
+      "rgb(255, 99, 71)",
+      1
+    ],
+    [
+      "rgb(248, 82, 28)",
+      1
+    ]
+  ],
+  "pageHeight": 1932,
+  "mobile": {
+    "overflow": false,
+    "visibleH1": [
+      {
+        "text": "\nThe fight for social, racial, and economic justice has never been more urgent.\n              ",
+        "top": 120
+      }
+    ]
+  }
+}

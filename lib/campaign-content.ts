@@ -1,54 +1,28 @@
-// Vision and mission statements supplied by the user. Program ideas and role
-// descriptions remain illustrative and require candidate approval.
-export const vision =
-  "Mewujudkan KMTSL sebagai rumah bersama yang terbuka, suportif, dan berintegritas, tempat setiap individu bertumbuh dan berprestasi bersama."
+import { officialMissions, officialVision } from "./platform-content"
 
-export const missions = [
-  {
-    id: "komunikasi",
-    number: "01",
-    title: "Setiap suara mendapat ruang.",
-    text: "Membangun ruang komunikasi dua arah yang inklusif dan responsif agar setiap individu dapat menyampaikan aspirasi serta gagasannya dengan nyaman.",
-  },
-  {
-    id: "tata-kelola",
-    number: "02",
-    title: "Tata kelola yang menjaga kepercayaan.",
-    text: "Menerapkan tata kelola organisasi yang profesional, transparan, dan akuntabel dengan tetap memperhatikan kapasitas serta kesejahteraan setiap individu di dalamnya.",
-  },
-  {
-    id: "sinergi",
-    number: "03",
-    title: "Potensi terhubung, langkah selaras.",
-    text: "Menguatkan sinergi dan kolaborasi berkelanjutan antarbidang dan subbidang guna mengoptimalkan potensi internal agar selaras dengan tujuan bersama KMTSL.",
-  },
-  {
-    id: "solidaritas",
-    number: "04",
-    title: "Lintas angkatan, satu rasa memiliki.",
-    text: "Memfasilitasi ruang interaksi sinergis lintas angkatan demi merajut solidaritas dan menumbuhkan rasa bahwa setiap individu memiliki tempat serta peran di KMTSL.",
-  },
-  {
-    id: "relasi",
-    number: "05",
-    title: "Membuka relasi, memperluas kemungkinan.",
-    text: "Menjalin relasi dan kolaborasi strategis bersama departemen, alumni, serta himpunan lain guna memperluas jaringan, wawasan, dan kapasitas KMTSL.",
-  },
-]
+// Legacy components share the official source with the current platform.
+// Program proposals below remain illustrative, not claims of completed work.
+export const vision = officialVision
+export const missions = officialMissions.map((mission, i) => ({
+  id: ["komunikasi", "tata-kelola", "sinergi", "solidaritas", "relasi"][i],
+  number: String(i + 1).padStart(2, "0"),
+  title: mission.title,
+  text: mission.text,
+}))
 
 export const candidates = [
   {
     name: "Muhammad Rafif Thalib",
     short: "Rafif",
     initials: "RF",
-    role: "Calon Ketua Himpunan",
+    role: "Calon Ketua KMTSL",
     focus: "Mendengar lebih dekat. Menggerakkan bersama.",
     description:
       "Dalam konsep ini, ketua himpunan menjaga arah bersama: membuka percakapan, mempertemukan gagasan, dan memastikan kebutuhan anggota menjadi dasar keputusan.",
     linkedin: "https://www.linkedin.com/in/muhammad-rafif-thalib-956b81351/",
   },
   {
-    name: "Dewa Ngakan Nyoman Tantra Swastika",
+    name: "Dewa Ngakan Nyoman T. S.",
     short: "Dewa",
     initials: "DW",
     role: "Calon Sekretaris Jenderal",

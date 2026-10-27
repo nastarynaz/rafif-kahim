@@ -1,62 +1,56 @@
-# Rafif & Dewa — konsep website kampanye KMTSL UGM
+# Rafif–Dewa · Samanvaya Sahakara
 
-Prototipe kampanye dengan konsep **Satu rumah. Banyak suara.** Visi dan lima misi memakai naskah yang diberikan pengguna. Copy pendamping, nama kampanye, program, dan alur kerja masih menjadi bahan pembahasan bersama kandidat.
+Platform pencalonan Ketua dan Sekretaris Jenderal KMTSL FT UGM 2026/2027. Memuat gagasan resmi, profil kandidat, survei warga, hasil agregat otomatis, aspirasi privat, agenda, dan panel admin.
 
-## Menjalankan
+Seluruh konten publik terintegrasi di landing `/`, dengan navigasi ke `/#gagasan`, `/#survei`, `/#hasil`, `/#agenda`, dan `/#aspirasi`. Hanya `/privasi` dan `/admin` yang terpisah: total tiga halaman. Alamat publik lama otomatis diarahkan ke bagian yang sesuai. Berpindah bagian tidak mereset isian survei atau draft aspirasi.
+
+Next.js 16.4.3 · React 19.3 · TypeScript · Tailwind 4 · Supabase Postgres/Auth. Foto asli memakai aset pengguna di `public/media`; font Manrope dan Newsreader dimuat lokal. Komponen prototipe tetap tersedia di repo.
+
+## Mulai lokal
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
+cp .env.example .env.local
+# Isi konfigurasi Supabase dan origin lokal.
 pnpm dev
 ```
 
-Buka alamat lokal yang dicetak Next.js (biasanya http://localhost:3000).
+Buka `http://localhost:3000`. Tanpa konfigurasi backend, UI tetap tersedia, sementara operasi pengiriman ditolak dengan pesan yang jelas. Tidak ada data survei atau akun admin palsu yang ditambahkan ke aplikasi.
+
+## Setup backend dan deploy
+
+Ikuti [panduan lengkap](docs/DEPLOYMENT.md) untuk environment variables, migrasi, admin pertama, izin akses, cron retensi, deployment Vercel, dan verifikasi grafik.
+
+- [Environment example](.env.example)
+- [Migrasi database](supabase/migrations/202610260001_platform.sql)
+- [PRD 1.0](docs/PRD.md)
+- [Audit sebelum implementasi](docs/PRD-AUDIT.md)
+- [Pengujian dan batas verifikasi](docs/TESTING.md)
+- [Naskah Samanvaya Sahakara](../SAMANVAYA-SAHAKARA.md)
+
+## Pemeriksaan
 
 ```bash
 pnpm typecheck
+pnpm lint
+pnpm test
 pnpm build
+pnpm test:e2e
+pnpm audit --prod
 ```
 
-## Materi dan sumber
-
-- [Copywriting dan daftar kebutuhan](docs/COPYWRITING.md)
-- [Peta kelengkapan konten dari referensi AG](docs/CONTENT-CHECKLIST.md)
-- [Super prompt untuk melanjutkan pengembangan](docs/SUPER-PROMPT.md)
-- Data kandidat, program, dan FAQ: `lib/campaign-content.ts`
-- Halaman dan interaksi: `components/campaign.tsx`
-- Art direction dan responsivitas: `app/globals.css`
-
-## Komponen
-
-Coss UI: Button, Tabs, Accordion, Dialog, Input, Textarea. React Bits: adaptasi AnimatedContent dengan GSAP, dukungan reduced motion, cleanup, dan konten terlihat tanpa JavaScript. Sumber serta lisensi disimpan di `components/react-bits/`.
-
-Font Manrope dan Newsreader dimuat dari paket lokal, tanpa permintaan Google Fonts saat build.
-
-Ilustrasi jembatan dan mark rumah berupa SVG buatan untuk prototipe. Monogram menggantikan foto yang belum tersedia. Tidak memakai lambang resmi UGM.
-
-## Perilaku demo
-
-Visi dan lima misi tampil utuh dalam daftar terbuka. Navigasi menuju bagian halaman, tab menampilkan pilar program, accordion membuka detail, dan dialog menampilkan konsep peran serta tautan LinkedIn. Form aspirasi memvalidasi pesan, membuat ringkasan, memungkinkan penyuntingan, dan mengunduh file teks. Tab Pengalaman, Galeri, dan Kata mereka menampilkan status bahan yang belum tersedia. Bagian kontak mengarah ke profil LinkedIn kedua kandidat. Tidak ada pengiriman ke server atau tim kampanye; pesan hanya berada di memori halaman dan hilang saat reload.
-
-Nama lengkap Dewa diberikan pengguna. Profil LinkedIn belum terbaca penuh, sehingga pengalaman, prestasi, dan foto tidak diambil atau dikarang. Jadwal, nomor urut, kontak tim, dan periode pemilihan belum dicantumkan. Metadata menggunakan noindex selama draft.
-
-## Verifikasi
-
-TypeScript, ESLint file perubahan, dan build produksi berhasil. Pengujian Playwright memakai browser lokal terpisah mencakup:
-
-- Isi visi dan kelima misi, ukuran teks, dan overflow horizontal pada lebar 360, 390, 768, dan 1440 px.
-- Navigasi seluler, tab gagasan program dan cerita, dialog profil, Escape, serta pengembalian fokus.
-- Validasi aspirasi kosong, penyuntingan, dan pengunduhan catatan.
-
-Screenshot desktop serta seluler tersimpan di `test-results/` (diabaikan Git). Browser yang terhubung ke aplikasi tidak tersedia pada sesi ini; pengujian dilakukan dengan Playwright dan Brave lokal.
+Playwright memakai database PGlite dan adapter Supabase REST/Auth lokal khusus tes, serta menjalankan build produksi pada port 3001. Browser perlu tersedia:
 
 ```bash
-# Setelah pnpm build; gunakan Chromium Playwright yang sudah terpasang:
-pnpm test:e2e
-
-# Atau browser lokal:
+pnpm exec playwright install chromium
+# Atau gunakan browser lokal yang kompatibel:
 TEST_BROWSER_PATH='/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' pnpm test:e2e
 ```
 
-Playwright menjalankan server produksi pada port 3001 dan menutupnya setelah tes. Lengkapi foto, pengalaman, program final, testimoni berizin, serta informasi pemilihan sebelum publikasi.
+Migrasi dan kontrol akses aplikasi diuji secara lokal; koneksi Supabase/Auth/Vercel nyata harus diverifikasi setelah kredensial disediakan. Tes tidak menghubungi atau mengisi backend produksi.
 
-# rafif-kahim
+## Data dan privasi
+
+Respons individual dan aspirasi tidak dapat dibaca langsung oleh role publik atau akun Supabase biasa. Server memverifikasi akun dan peran setiap kali admin mengakses data. Dashboard publik hanya membaca agregat, dengan ambang lima responden valid per aspek/kelompok. Agenda contoh tetap draft sampai dikonfirmasi admin.
+
+Semua secret hanya digunakan di server. Jangan commit `.env.local`. Jangan mencatat request body aspirasi dalam alat analitik atau log.

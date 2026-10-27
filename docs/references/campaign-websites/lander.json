@@ -1,0 +1,250 @@
+{
+  "checkedAt": "2026-10-26T17:36:25.559Z",
+  "id": "lander",
+  "url": "https://www.bradlanderforcongress.com/",
+  "status": 200,
+  "title": "Brad Lander for Congress",
+  "finalUrl": "https://www.bradlanderforcongress.com/",
+  "headings": [
+    {
+      "level": "H1",
+      "text": "Fight, Don't Fold",
+      "font": "Raleway, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "59.2704px"
+    },
+    {
+      "level": "H2",
+      "text": "Thank you, NY-10!",
+      "font": "Raleway, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "40.474px"
+    },
+    {
+      "level": "H2",
+      "text": "Meeting the Moment",
+      "font": "Raleway, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "40.474px"
+    },
+    {
+      "level": "H2",
+      "text": "Latest from the Campaign Trail",
+      "font": "Raleway, system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "size": "40.474px"
+    }
+  ],
+  "navigation": [
+    {
+      "text": "",
+      "href": "https://www.bradlanderforcongress.com/#"
+    },
+    {
+      "text": "About",
+      "href": "https://www.bradlanderforcongress.com/about"
+    },
+    {
+      "text": "Issues",
+      "href": "https://www.bradlanderforcongress.com/issues"
+    },
+    {
+      "text": "Shop",
+      "href": "https://store.landerfornyc.com/"
+    },
+    {
+      "text": "Endorsements",
+      "href": "https://www.bradlanderforcongress.com/endorsements"
+    },
+    {
+      "text": "Apply for a Role",
+      "href": "https://docs.google.com/forms/d/e/1FAIpQLSf-3ez9Rk003xNxQD3SI395bGCpW_N-aFJcPRdEMfi_d41qNw/viewform"
+    },
+    {
+      "text": "Donate",
+      "href": "https://secure.actblue.com/donate/bl4cweb"
+    },
+    {
+      "text": "brad@landerfornyc.com",
+      "href": "mailto:brad@landerfornyc.com"
+    },
+    {
+      "text": "Privacy Notice",
+      "href": "https://www.bradlanderforcongress.com/42ce6cb1-ac9e-41a3-bccc-70194d57f47a"
+    },
+    {
+      "text": "Terms and Conditions",
+      "href": "https://www.bradlanderforcongress.com/8e4b53fe-9087-4145-b077-8b7a97db4077"
+    },
+    {
+      "text": "",
+      "href": "https://facebook.com/bradlander"
+    },
+    {
+      "text": "",
+      "href": "https://instagram.com/brad.lander"
+    },
+    {
+      "text": "",
+      "href": "https://x.com/bradlander"
+    },
+    {
+      "text": "",
+      "href": "https://tiktok.com/@bradlandernyc"
+    },
+    {
+      "text": "",
+      "href": "https://threads.net/@brad.lander"
+    },
+    {
+      "text": "",
+      "href": "https://bsky.app/profile/bradlander.bsky.social"
+    },
+    {
+      "text": "",
+      "href": "https://bradlander.substack.com/"
+    },
+    {
+      "text": "",
+      "href": "https://www.youtube.com/@landerfornyc"
+    }
+  ],
+  "actions": [
+    {
+      "text": "Skip navigation menu",
+      "href": "https://www.bradlanderforcongress.com/#main-content"
+    },
+    {
+      "text": "Media",
+      "href": null
+    },
+    {
+      "text": "Donate",
+      "href": "https://secure.actblue.com/donate/bl4cweb"
+    },
+    {
+      "text": "Submit",
+      "href": null
+    },
+    {
+      "text": "$10",
+      "href": "https://secure.actblue.com/donate/bl4cweb?amount=10"
+    },
+    {
+      "text": "$25",
+      "href": "https://secure.actblue.com/donate/bl4cweb?amount=25"
+    },
+    {
+      "text": "$50",
+      "href": "https://secure.actblue.com/donate/bl4cweb?amount=50"
+    },
+    {
+      "text": "$100",
+      "href": "https://secure.actblue.com/donate/bl4cweb?amount=100"
+    },
+    {
+      "text": "$250",
+      "href": "https://secure.actblue.com/donate/bl4cweb?amount=250"
+    },
+    {
+      "text": "Other",
+      "href": "https://secure.actblue.com/donate/bl4cweb"
+    }
+  ],
+  "images": [
+    {
+      "alt": "Hero background image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/e4f5b452-3eca-4f0c-82ea-227d95204138/e4f5b452-3eca-4f0c-82ea-227d95204138.jpg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C393%2C2102%2C2282&auto=compress%2Cformat&fit=fillmax&w=1920&q=75&s=498c45f538e61ba450ac06ded83b28f6",
+      "width": 1440,
+      "height": 1563
+    },
+    {
+      "alt": "Brad Lander for Congress",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/5dad63b4-a86b-4936-9966-b22c40cb1b5b/5dad63b4-a86b-4936-9966-b22c40cb1b5b.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C846%2C544&auto=compress%2Cformat&fit=fillmax&w=1080&q=75&s=4e8a092b98c2698cfc9e626358533a7d",
+      "width": 634,
+      "height": 408
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/9543ee66-f125-42fd-ae25-5ae2092240c8/9543ee66-f125-42fd-ae25-5ae2092240c8.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C2126%2C1028&auto=compress%2Cformat&fit=fillmax&w=1920&q=75&s=bd81eeae7048512213234342ac0964f1",
+      "width": 1440,
+      "height": 696
+    },
+    {
+      "alt": "Introductory photo",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/395fcc9b-7dbb-44be-a992-c1e3da4597d0/395fcc9b-7dbb-44be-a992-c1e3da4597d0.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C1001%2C1001&auto=compress%2Cformat&fit=fillmax&w=1080&q=75&s=125007eab0c7681ab088498afd7ecf30",
+      "width": 750,
+      "height": 750
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/460fa8a7-d654-46b9-8632-faef1b008243/460fa8a7-d654-46b9-8632-faef1b008243.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C0%2C2038%2C938&auto=compress%2Cformat&fit=fillmax&w=1920&q=75&s=720c53b1aac5258a799c14def0116726",
+      "width": 1440,
+      "height": 663
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/e2145fac-b295-4f24-acd7-babdcf7ae278/e2145fac-b295-4f24-acd7-babdcf7ae278.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=47%2C0%2C1803%2C1014&auto=compress%2Cformat&fit=fillmax&w=1920&q=75&s=c027109c0d9c6871a71e810f2d4258ef",
+      "width": 1352,
+      "height": 760
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/0a68c1e3-645f-4785-b0cf-9a8ad0d824eb/0a68c1e3-645f-4785-b0cf-9a8ad0d824eb.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C55%2C696%2C391&auto=compress%2Cformat&fit=fillmax&w=750&q=75&s=7fa299eef2392534a52b9f488d87dddf",
+      "width": 522,
+      "height": 293
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/431bb162-aa5f-4cb5-8d01-177cd7f91d2e/431bb162-aa5f-4cb5-8d01-177cd7f91d2e.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=24%2C0%2C1988%2C1118&auto=compress%2Cformat&fit=fillmax&w=1920&q=75&s=67856cda5b2dfc243248126a868d5342",
+      "width": 1440,
+      "height": 810
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/ef53ba9f-3a62-4463-9b0f-805df74ca33b/ef53ba9f-3a62-4463-9b0f-805df74ca33b.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=357%2C160%2C1260%2C708&auto=compress%2Cformat&fit=fillmax&w=1920&q=75&s=1a5568992d94a8dfecce11684adbb9e6",
+      "width": 945,
+      "height": 531
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/136addad-92c9-469a-b6ee-484e9dcf9b9d/136addad-92c9-469a-b6ee-484e9dcf9b9d.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C32%2C720%2C405&auto=compress%2Cformat&fit=fillmax&w=750&q=75&s=5e4ee4b32b72d527fc7487cb4fcc6adf",
+      "width": 540,
+      "height": 303
+    },
+    {
+      "alt": "Video component image",
+      "src": "https://run.imgix.net/68d35dd5-f7a6-4a7e-9057-c3908286d00f/f52bd5a9-434c-40e9-9c1a-e83415e94719/f52bd5a9-434c-40e9-9c1a-e83415e94719.png?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=0%2C47%2C2030%2C1142&auto=compress%2Cformat&fit=fillmax&w=1920&q=75&s=f371af6b09f169f4e9c6b8de27b8a874",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "colors": [
+    [
+      "rgb(34, 96, 134)",
+      25
+    ],
+    [
+      "rgb(255, 255, 255)",
+      20
+    ],
+    [
+      "rgb(0, 0, 0)",
+      12
+    ],
+    [
+      "rgb(252, 207, 76)",
+      12
+    ],
+    [
+      "rgb(245, 155, 38)",
+      1
+    ]
+  ],
+  "pageHeight": 4826,
+  "mobile": {
+    "overflow": false,
+    "visibleH1": [
+      {
+        "text": "Fight, Don't Fold",
+        "top": 697.875
+      }
+    ]
+  }
+}

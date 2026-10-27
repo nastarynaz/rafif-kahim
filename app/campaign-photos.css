@@ -1,0 +1,123 @@
+.p-missions-layout {
+  display: block;
+}
+
+.p-candidate-details summary {
+  display: grid;
+  grid-template-columns: 144px minmax(0, 1fr) 20px;
+  gap: 22px;
+}
+.p-candidate-profile-photo {
+  display: block;
+  width: 144px;
+  height: 116px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 4px;
+}
+.p-community-photo {
+  margin-top: 56px;
+}
+.p-community-photo > img {
+  width: 100%;
+  max-height: 480px;
+  aspect-ratio: 2.5 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.p-campus-gallery {
+  display: grid;
+  gap: 20px;
+}
+.p-campus-gallery .p-reference-photo {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.p-campus-gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+.p-campus-gallery-story {
+  grid-template-columns: 1.45fr 1fr;
+  margin-block: 52px 32px;
+}
+.p-campus-gallery-story .p-reference-photo {
+  height: 380px;
+}
+.p-campus-gallery-story .p-reference-photo:first-child img {
+  object-position: 38% center;
+}
+.p-campus-gallery-participation {
+  grid-template-columns: 1fr 1.35fr 1fr;
+  margin-block: 32px;
+}
+.p-campus-gallery-participation .p-reference-photo {
+  height: 270px;
+}
+.p-campus-gallery-participation .p-reference-photo:nth-child(2) img {
+  object-position: 50% 35%;
+}
+@media (max-width: 850px) {
+  .p-candidate-details summary {
+    grid-template-columns: 108px minmax(0, 1fr) 20px;
+    gap: 16px;
+  }
+  .p-candidate-profile-photo {
+    width: 108px;
+    height: 100px;
+  }
+  .p-campus-gallery-story .p-reference-photo {
+    height: 310px;
+  }
+  .p-campus-gallery-participation .p-reference-photo {
+    height: 220px;
+  }
+  .p-campus-gallery {
+    gap: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .p-candidate-details summary {
+    grid-template-columns: 80px minmax(0, 1fr) 18px;
+    gap: 13px;
+  }
+  .p-candidate-profile-photo {
+    width: 80px;
+    height: 98px;
+  }
+  .p-candidate-details h3 {
+    font-size: 17px;
+  }
+  .p-community-photo {
+    margin-top: 32px;
+  }
+  .p-community-photo > img {
+    aspect-ratio: 4 / 3;
+    object-position: 50% 45%;
+  }
+  .p-campus-gallery-story {
+    grid-template-columns: 1.15fr 1fr;
+    margin-block: 34px 24px;
+    gap: 10px;
+  }
+  .p-campus-gallery-story .p-reference-photo {
+    height: 245px;
+  }
+  .p-campus-gallery-participation {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .p-campus-gallery-participation .p-reference-photo {
+    height: 190px;
+  }
+  .p-campus-gallery-participation .p-reference-photo:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: auto;
+    aspect-ratio: 1.85 / 1;
+  }
+}

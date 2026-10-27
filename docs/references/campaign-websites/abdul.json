@@ -1,0 +1,552 @@
+{
+  "checkedAt": "2026-10-26T17:36:29.150Z",
+  "id": "abdul",
+  "url": "https://abdulforsenate.com/",
+  "status": 200,
+  "title": "Abdul El-Sayed – Michigan U.S. Senate Candidate 2026",
+  "finalUrl": "https://abdulforsenate.com/",
+  "headings": [
+    {
+      "level": "H2",
+      "text": "Donate now!",
+      "font": "kensington, sans-serif",
+      "size": "56px"
+    },
+    {
+      "level": "H1",
+      "text": "Abdul for U.S. Senate .clogo0{fill:#233071}.clogo3{fill:#d21214}",
+      "font": "halyard-text, sans-serif",
+      "size": "40px"
+    },
+    {
+      "level": "H2",
+      "text": "Money Out of Politics, Money in Your Pocket, Medicare for All",
+      "font": "kensington, sans-serif",
+      "size": "61px"
+    },
+    {
+      "level": "H2",
+      "text": "It Shouldn’t Be This Hard Just To Get By",
+      "font": "kensington, sans-serif",
+      "size": "75px"
+    },
+    {
+      "level": "H2",
+      "text": "Get Involved",
+      "font": "kensington, sans-serif",
+      "size": "75px"
+    },
+    {
+      "level": "H3",
+      "text": "Sign Up for Updates",
+      "font": "kensington, sans-serif",
+      "size": "45px"
+    },
+    {
+      "level": "H3",
+      "text": "Donate to the Campaign",
+      "font": "kensington, sans-serif",
+      "size": "45px"
+    },
+    {
+      "level": "H3",
+      "text": "Join Our Movement",
+      "font": "kensington, sans-serif",
+      "size": "45px"
+    },
+    {
+      "level": "H2",
+      "text": "Common Sense Priorities for Our Future",
+      "font": "kensington, sans-serif",
+      "size": "75px"
+    },
+    {
+      "level": "H2",
+      "text": "Campaign News",
+      "font": "kensington, sans-serif",
+      "size": "75px"
+    },
+    {
+      "level": "H3",
+      "text": "Connect with us:",
+      "font": "kensington, sans-serif",
+      "size": "20px"
+    },
+    {
+      "level": "H3",
+      "text": "“Pretend I’m On The Ballot” — During Rally, Trump Confirms Mike Rogers Will Be His Rubber Stamp",
+      "font": "kensington, sans-serif",
+      "size": "36px"
+    },
+    {
+      "level": "H3",
+      "text": "President Obama Joins Abdul El-Sayed For Packed Detroit Rally To Kick Off Final Stretch Of Campaign",
+      "font": "kensington, sans-serif",
+      "size": "36px"
+    },
+    {
+      "level": "H3",
+      "text": "Abdul El-Sayed Makes a Splash in New Ad “Pool,” Airing During Michigan Football Game",
+      "font": "kensington, sans-serif",
+      "size": "36px"
+    },
+    {
+      "level": "H2",
+      "text": "Join our movement",
+      "font": "kensington, sans-serif",
+      "size": "75px"
+    },
+    {
+      "level": "H2",
+      "text": "Contribute",
+      "font": "kensington, sans-serif",
+      "size": "45px"
+    },
+    {
+      "level": "H3",
+      "text": "Follow Us:",
+      "font": "halyard-text, sans-serif",
+      "size": "16px"
+    },
+    {
+      "level": "H2",
+      "text": "Donate By Mail",
+      "font": "halyard-text, sans-serif",
+      "size": "14px"
+    }
+  ],
+  "navigation": [
+    {
+      "text": "$10",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=10"
+    },
+    {
+      "text": "$25",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=25"
+    },
+    {
+      "text": "$100",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=100"
+    },
+    {
+      "text": "$250",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=250"
+    },
+    {
+      "text": "$500",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=500"
+    },
+    {
+      "text": "Other amount",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover"
+    },
+    {
+      "text": "Make your plan to vote",
+      "href": "https://abdulforsenate.com/vote/"
+    },
+    {
+      "text": "Facebook",
+      "href": "https://www.facebook.com/DrAbdulElSayed/"
+    },
+    {
+      "text": "X",
+      "href": "https://x.com/AbdulElSayed"
+    },
+    {
+      "text": "Bluesky",
+      "href": "https://bsky.app/profile/abdulelsayed.bsky.social"
+    },
+    {
+      "text": "Instagram",
+      "href": "https://www.instagram.com/abdulelsayed"
+    },
+    {
+      "text": "YouTube",
+      "href": "https://www.youtube.com/c/abdulelsayed"
+    },
+    {
+      "text": "TikTok",
+      "href": "https://www.tiktok.com/@abdulelsayed"
+    },
+    {
+      "text": "Abdul for U.S. Senate .clogo0{fill:#233071}.clogo3{fill:#d21214}",
+      "href": "https://abdulforsenate.com/"
+    },
+    {
+      "text": "Meet Abdul",
+      "href": "https://abdulforsenate.com/about/"
+    },
+    {
+      "text": "Priorities",
+      "href": "https://abdulforsenate.com/priorities/"
+    },
+    {
+      "text": "Money Out of Politics",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/"
+    },
+    {
+      "text": "Money in Your Pocket",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/"
+    },
+    {
+      "text": "Medicare for All",
+      "href": "https://abdulforsenate.com/priority/medicare-for-all-the-path-to-a-healthier-america/"
+    },
+    {
+      "text": "How to Vote",
+      "href": "https://abdulforsenate.com/vote/"
+    },
+    {
+      "text": "Endorsements",
+      "href": "https://abdulforsenate.com/endorsements/"
+    },
+    {
+      "text": "Events",
+      "href": "https://www.mobilize.us/abdulforsenate"
+    },
+    {
+      "text": "Events with Abdul",
+      "href": "https://www.mobilize.us/abdulforsenate"
+    },
+    {
+      "text": "Events for Volunteers",
+      "href": "https://abdulforsenate.com/volunteer-for-abdul/"
+    },
+    {
+      "text": "Volunteer",
+      "href": "https://go.abdulforsenate.com/"
+    },
+    {
+      "text": "News",
+      "href": "https://abdulforsenate.com/news/"
+    },
+    {
+      "text": "Store",
+      "href": "https://store.abdulforsenate.com/"
+    },
+    {
+      "text": "Donate",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web-nav"
+    },
+    {
+      "text": "Terms of Service and Privacy Policy",
+      "href": "https://abdulforsenate.com/privacy-policy/"
+    },
+    {
+      "text": "$10",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_cta&amount=10"
+    },
+    {
+      "text": "$25",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_cta&amount=25"
+    },
+    {
+      "text": "$100",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_cta&amount=100"
+    },
+    {
+      "text": "$250",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_cta&amount=250"
+    },
+    {
+      "text": "$500",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_cta&amount=500"
+    },
+    {
+      "text": "Other amount",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_cta"
+    },
+    {
+      "text": "Abdul for U.S. Senate .llogo{fill:#f7eade}",
+      "href": "https://abdulforsenate.com/"
+    },
+    {
+      "text": "Meet Abdul",
+      "href": "https://abdulforsenate.com/about/"
+    },
+    {
+      "text": "Priorities",
+      "href": "https://abdulforsenate.com/priorities/"
+    },
+    {
+      "text": "How to Vote",
+      "href": "https://abdulforsenate.com/vote/"
+    },
+    {
+      "text": "Endorsements",
+      "href": "https://abdulforsenate.com/endorsements/"
+    },
+    {
+      "text": "Events",
+      "href": "https://www.mobilize.us/abdulforsenate"
+    },
+    {
+      "text": "Volunteer",
+      "href": "https://go.abdulforsenate.com/"
+    },
+    {
+      "text": "News",
+      "href": "https://abdulforsenate.com/news/"
+    },
+    {
+      "text": "Store",
+      "href": "https://store.abdulforsenate.com/"
+    },
+    {
+      "text": "Donate",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web-nav"
+    },
+    {
+      "text": "Facebook",
+      "href": "https://www.facebook.com/DrAbdulElSayed/"
+    },
+    {
+      "text": "X",
+      "href": "https://x.com/AbdulElSayed"
+    },
+    {
+      "text": "Bluesky",
+      "href": "https://bsky.app/profile/abdulelsayed.bsky.social"
+    },
+    {
+      "text": "Instagram",
+      "href": "https://www.instagram.com/abdulelsayed"
+    },
+    {
+      "text": "YouTube",
+      "href": "https://www.youtube.com/c/abdulelsayed"
+    },
+    {
+      "text": "TikTok",
+      "href": "https://www.tiktok.com/@abdulelsayed"
+    },
+    {
+      "text": "Contact the Campaign",
+      "href": "https://abdulforsenate.com/contact/"
+    },
+    {
+      "text": "Speaking Request",
+      "href": "https://abdulforsenate.com/speaking-request/"
+    },
+    {
+      "text": "Jobs",
+      "href": "https://abdulforsenate.com/jobs/"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://abdulforsenate.com/privacy-policy/"
+    },
+    {
+      "text": "Middle Seat",
+      "href": "https://middleseat.co/"
+    }
+  ],
+  "actions": [
+    {
+      "text": "$10",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=10"
+    },
+    {
+      "text": "$25",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=25"
+    },
+    {
+      "text": "$100",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=100"
+    },
+    {
+      "text": "$250",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=250"
+    },
+    {
+      "text": "$500",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover&amount=500"
+    },
+    {
+      "text": "Other amount",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web_home_takeover"
+    },
+    {
+      "text": "Close",
+      "href": null
+    },
+    {
+      "text": "Join Us",
+      "href": null
+    },
+    {
+      "text": "Terms of Service and Privacy Policy",
+      "href": "https://abdulforsenate.com/privacy-policy/"
+    },
+    {
+      "text": "Learn More",
+      "href": "https://abdulforsenate.com/about/"
+    },
+    {
+      "text": "Watch video",
+      "href": null
+    },
+    {
+      "text": "Sign Up for Updates Sign Up",
+      "href": "https://abdulforsenate.com/#signup_cta"
+    },
+    {
+      "text": "Donate to the Campaign Contribute",
+      "href": "https://secure.actblue.com/donate/aes-web?refcode=web-action"
+    },
+    {
+      "text": "Join Our Movement Volunteer",
+      "href": "https://go.abdulforsenate.com/"
+    },
+    {
+      "text": "Money Out of Politics",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/"
+    },
+    {
+      "text": "Banning Corporate Money in Politics",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-banning-corporate-money-in-politics"
+    },
+    {
+      "text": "Ending Gerrymandering",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-ending-gerrymandering"
+    },
+    {
+      "text": "Supreme Court Reform",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-supreme-court-reform"
+    },
+    {
+      "text": "Abolishing the Filibuster",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-abolishing-the-filibuster"
+    },
+    {
+      "text": "Making Voting Easier",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-making-voting-easier"
+    },
+    {
+      "text": "Civil Rights & Liberties",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-civil-rights-amp-liberties"
+    },
+    {
+      "text": "Immigration",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-immigration"
+    },
+    {
+      "text": "Environment and Natural Resources",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-environment-and-natural-resources"
+    },
+    {
+      "text": "Water",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-water"
+    },
+    {
+      "text": "Sensible Foreign Policy",
+      "href": "https://abdulforsenate.com/priority/money-out-of-politics/#h-sensible-foreign-policy"
+    },
+    {
+      "text": "Money in Your Pocket",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/"
+    },
+    {
+      "text": "Jobs and Trade",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/#h-jobs-and-trade"
+    },
+    {
+      "text": "Taxing Billionaire Wealth",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/#h-taxing-billionaire-wealth"
+    },
+    {
+      "text": "Artificial Intelligence",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/#h-artificial-intelligence-nbsp"
+    },
+    {
+      "text": "Data Centers",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/#h-data-centers"
+    },
+    {
+      "text": "Housing and Homelessness",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/#h-housing-and-homelessness"
+    },
+    {
+      "text": "Education",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/#h-education"
+    },
+    {
+      "text": "Farming",
+      "href": "https://abdulforsenate.com/priority/money-in-your-pocket/#h-farming"
+    },
+    {
+      "text": "Medicare for All",
+      "href": "https://abdulforsenate.com/priority/medicare-for-all-the-path-to-a-healthier-america/"
+    },
+    {
+      "text": "Veterans Affairs",
+      "href": "https://abdulforsenate.com/priority/medicare-for-all-the-path-to-a-healthier-america/#h-veterans-affairs"
+    }
+  ],
+  "images": [
+    {
+      "alt": "Abdul El-Sayed",
+      "src": "https://abdulforsenate.com/wp-content/uploads/2025/04/Mask-Group-1024x729.png",
+      "width": 800,
+      "height": 569
+    },
+    {
+      "alt": "Abdul El-Sayed speaking with voters",
+      "src": "https://abdulforsenate.com/wp-content/uploads/2025/04/Mask-Group1-1024x730.png",
+      "width": 800,
+      "height": 570
+    }
+  ],
+  "colors": [
+    [
+      "rgb(252, 244, 237)",
+      61
+    ],
+    [
+      "rgb(18, 28, 80)",
+      27
+    ],
+    [
+      "rgb(29, 77, 199)",
+      21
+    ],
+    [
+      "rgb(255, 255, 255)",
+      20
+    ],
+    [
+      "rgb(19, 44, 69)",
+      15
+    ],
+    [
+      "rgb(64, 107, 191)",
+      4
+    ],
+    [
+      "rgb(3, 5, 16)",
+      4
+    ],
+    [
+      "rgb(210, 18, 20)",
+      3
+    ],
+    [
+      "rgb(17, 17, 17)",
+      1
+    ],
+    [
+      "rgba(252, 244, 237, 0.75)",
+      1
+    ]
+  ],
+  "pageHeight": 5462,
+  "mobile": {
+    "overflow": false,
+    "visibleH1": [
+      {
+        "text": "\n\t\t\t\n\t\t\t\tAbdul for U.S. Senate\n\t\t\t\t\t\t\t\t\t.clogo0{fill:#233071}.clogo3{fill:#d21214}\n\t\t\t\t\t\t\t\n\t\t",
+        "top": 416.390625
+      }
+    ]
+  }
+}

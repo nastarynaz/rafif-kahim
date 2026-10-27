@@ -1,0 +1,110 @@
+.platform :is(.p-field input, .p-field select, .p-field textarea) {
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+.platform :is(.p-field input, .p-field select, .p-field textarea):focus {
+  border-color: var(--p-focus);
+  box-shadow: 0 0 0 3px rgb(49 93 154 / 12%);
+}
+.p-stat-card strong {
+  font-variant-numeric: tabular-nums;
+}
+.p-poster-word {
+  display: block;
+}
+
+/* AOS uses one short movement for whole content blocks. */
+.p-motion-root [data-aos="fade-up"]:not(.aos-animate) {
+  transform: translate3d(0, 20px, 0);
+}
+.p-motion-root [data-aos="fade-up"].aos-animate {
+  transform: none;
+}
+/* Content stays readable before initialization, without JS, and during keyboard use. */
+.p-motion-root:not([data-aos-ready]) [data-aos],
+.p-motion-root[data-keyboard] [data-aos],
+.p-motion-root [data-aos]:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+.platform:has(:focus-visible) * {
+  transition: none !important;
+}
+
+.p-poster-track {
+  animation: p-poster-marquee 110s linear infinite;
+  animation-play-state: paused;
+}
+.p-poster-pattern > span:nth-child(even) .p-poster-track {
+  animation-direction: reverse;
+}
+.p-motion-root[data-marquee-running="true"] .p-poster-track {
+  animation-play-state: running;
+}
+@keyframes p-poster-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.p-poster-motion-toggle {
+  display: none;
+  position: absolute;
+  top: 52px;
+  right: 24px;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgb(126 154 198 / 50%);
+  border-radius: 50%;
+  background: var(--p-primary);
+  color: var(--p-on-dark);
+}
+.p-motion-root[data-marquee-ready] .p-poster-motion-toggle {
+  display: grid;
+}
+.p-poster-motion-toggle svg:last-child,
+.p-poster-motion-toggle[aria-pressed="true"] svg:first-child {
+  display: none;
+}
+.p-poster-motion-toggle[aria-pressed="true"] svg:last-child {
+  display: block;
+}
+.p-skeleton {
+  animation: p-loading 1400ms ease-in-out infinite alternate;
+}
+@keyframes p-loading {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 0.85;
+  }
+}
+@media (max-width: 600px) {
+  .p-poster-motion-toggle {
+    top: 42px;
+    right: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .platform *,
+  .platform *::before,
+  .platform *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .platform [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .p-motion-root[data-marquee-ready] .p-poster-motion-toggle {
+    display: none;
+  }
+}
